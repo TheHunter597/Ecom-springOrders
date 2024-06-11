@@ -19,6 +19,7 @@ public class Main {
         var result = http.authorizeHttpRequests((a) -> {
             a.requestMatchers("/health/").permitAll();
             a.anyRequest().authenticated();
+
         }).csrf((csrf) -> {
             csrf.disable();
         }).sessionManagement((session) -> {

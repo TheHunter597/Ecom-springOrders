@@ -82,7 +82,6 @@ public class MainRestController {
     @PostMapping("/")
     public ResponseEntity<HashMap<String, Object>> createOrder(@RequestBody RequestBodyData data)
             throws IllegalArgumentException, IllegalAccessException {
-
         var missedArgs = data.validate(new ArrayList<>(List.of("product", "quantity", "color")));
         if (missedArgs != null) {
             throw new MissedArgs(missedArgs);
